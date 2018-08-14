@@ -5,11 +5,12 @@ import com.friends.itour.core.universal.AbstractService;
 import com.friends.itour.dao.UserMapper;
 import com.friends.itour.model.User;
 import com.friends.itour.service.UserService;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-
+@Component
 public class UserServiceImpl extends AbstractService<User> implements UserService {
     @Resource
     private UserMapper userMapper;
