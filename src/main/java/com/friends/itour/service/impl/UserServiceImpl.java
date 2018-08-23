@@ -10,7 +10,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
-@Component
+//@Component
+@Service
 public class UserServiceImpl extends AbstractService<User> implements UserService {
     @Resource
     private UserMapper userMapper;

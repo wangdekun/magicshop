@@ -11,3 +11,11 @@ CREATE TABLE `user` (
   `password` varchar(32) DEFAULT NULL COMMENT '用户密码',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `teacher`;
+CREATE TABLE `teacher` (
+  `id` integer(100) NOT NULL,
+  `username` varchar(32) DEFAULT NULL COMMENT '登录名',
+  `password` varchar(32) DEFAULT NULL COMMENT '用户密码',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

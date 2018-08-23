@@ -76,6 +76,23 @@
             <artifactId>swagger-annotations</artifactId>
             <version>1.5.6</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>${shiro.version}version</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angularjs</artifactId>
+            <version>1.7.2</version>
+        </dependency>
     </dependencies>
 
 	<build>
@@ -84,7 +101,62 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-		</plugins>
+			<!--&lt;!&ndash; webpack &ndash;&gt;
+			<plugin>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>1.2</version>
+				<configuration>
+					<installDirectory>target</installDirectory>  &lt;!&ndash; 该插件的安装位置 &ndash;&gt;
+					&lt;!&ndash; webpack的工作目录，所有的配置文件/package.json/component/js及all所有和react有关的文件都在这个目录里存放 &ndash;&gt;
+					<workingDirectory>src/main/resources/js</workingDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<id>install node and npm</id> &lt;!&ndash; webpack必须有node支持 &ndash;&gt;
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+						<configuration>
+							<nodeVersion>v8.11.1</nodeVersion>
+							<npmVersion>5.6.0</npmVersion>
+						</configuration>
+					</execution>
+					<execution>
+						<id>npm install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>install</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>webpack build</id> &lt;!&ndash; webpack build &ndash;&gt;
+						<goals>
+							<goal>webpack</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>-->
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.6</version>
+                <configuration>
+                    <nodeVersion>v8.8.1</nodeVersion>
+                </configuration>
+                <executions>
+					<execution>
+						<id>npm-install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+					</execution>
+                </executions>
+            </plugin>
+
+        </plugins>
 	</build>
 
 

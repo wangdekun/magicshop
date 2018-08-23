@@ -4,6 +4,7 @@ import com.friends.itour.model.User;
 import com.friends.itour.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,16 +14,27 @@ import javax.annotation.Resource;
 
 @Controller
 public class HelloController {
-    @Autowired
+    @Resource
     private UserService userService;
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String say() {
         return "Hello, Spring Boot!";
     }
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String test() {
-        return  "welcome";
+    @GetMapping(value = "/test")
+    public User test(@RequestParam String userName, String passWord) {
+        User user = userService.findUserByUsernameAndPassword(userName);
+        System.err.println(user.getPassWord());
+        if(user.getPassWord().equals(passWord)){
+            System.err.println("==================================");
+            System.err.println(user);
+            return user;
+            //return RetResponse.makeOKRsp(user);
+            //return  user;
+        }else {
+            return  null;
+        }
+        //return  null;
     }
 
     @RequestMapping(value = "/tests", method = RequestMethod.GET)
@@ -46,6 +58,7 @@ public class HelloController {
         }else {
             return  null;
         }
+        //return  null;
        /*if(userName.equals("1")&&passWord.equals("123")){
            return "index";
        }else{
