@@ -3,13 +3,24 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>玩转spring boot——简单登录认证</title>
+    <script type="text/javascript" src="webjars/angularjs/1.7.2/angular.min.js"></script>
+    <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+
 </head>
-<script type="text/javascript" src="webjars/angularjs/1.7.2/angular.min.js"></script>
-<script type="text/javascript" src="${}../static/controller/userController.js"></script>
+
+
 <body>
 00000000000000000
-<div ng-app="myApp" ng-controller="myCon">
-    {{hello}}
+<div>
+
+    <td>${user.userName}</td>
+    <button type="button" class="btn btn-default dropdown-toggle" onclick="showusers()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    </button>
 </div>
 </body>
+<script text="javaScript">
+    function showusers(){
+        window.location.href="/showusetable"
+    }
+</script>
 </html>

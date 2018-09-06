@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 //@Component
 @Service
@@ -26,7 +27,8 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     }
 
     @Override
-    public User findAllUser() {
-        return null;
+    public List<User> findAllUser() {
+        List<User> user = userMapper.selectAll();
+        return user;
     }
 }
