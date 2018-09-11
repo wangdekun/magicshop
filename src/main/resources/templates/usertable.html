@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html>
 <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="
 ../static/js/jquery-2.1.1.js"></script>
@@ -7,12 +7,15 @@
     $(function() {
         $.ajax({
             url:"./showusetableqq",
-            type:"post",
+            type:"get",
+            dataType:"json",
             success:function (data) {
-                console.log(data,"===========")
+                console.log(data,"===========",typeof data,"+++++++++++++++++++++++",data.list)
+
             },
             error: function (msg) {
-                alert("000000000000000000000000000")
+
+                console.log("000000000000000000000000000",msg)
             }
         });
     });

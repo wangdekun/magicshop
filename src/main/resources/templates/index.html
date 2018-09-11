@@ -16,10 +16,15 @@
     <td>${user.userName}</td>
     <button type="button" class="btn btn-default dropdown-toggle" onclick="showusers()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     </button>
+    <button type="button" class="btn btn-default dropdown-toggle" onclick="showuserss()" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    </button>
 </div>
 </body>
 <script text="javaScript">
     function showusers(){
+        window.location.href="/showusetable"
+    }
+    function showuserss(){
         window.location.href="/showusetable"
     }
 </script>
