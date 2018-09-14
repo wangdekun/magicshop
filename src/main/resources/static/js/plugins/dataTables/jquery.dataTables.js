@@ -7550,7 +7550,7 @@
 	 * @returns {DataTables.Api} this
 	 */
 	_api_register( 'ajax.url().load()', function ( callback, resetPaging ) {
-		// Same as a reload, but makes sense to present it for easy access after a
+		// Same as a reload, but makes sense to present it for easyui access after a
 		// url change
 		return this.iterator( 'table', function ( ctx ) {
 			__reload( ctx, resetPaging===false, callback );
@@ -13953,7 +13953,7 @@
 			 * Type detection functions.
 			 *
 			 * The functions defined in this object are used to automatically detect
-			 * a column's type, making initialisation of DataTables super easy, even
+			 * a column's type, making initialisation of DataTables super easyui, even
 			 * when complex data is in the table.
 			 *
 			 * The functions defined take two parameters:
@@ -14565,7 +14565,7 @@
 	
 	
 	// Add the numeric 'deformatting' functions for sorting and search. This is done
-	// in a function to provide an easy ability for the language options to add
+	// in a function to provide an easyui ability for the language options to add
 	// additional methods if a non-period decimal place is used.
 	function _addNumericSort ( decimalPlace ) {
 		$.each(

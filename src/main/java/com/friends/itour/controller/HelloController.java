@@ -25,12 +25,18 @@ import java.util.Map;
 
 
 @Controller
+@RequestMapping(value = "/user")
 public class HelloController {
     @Resource
     private UserService userService;
 
     @Autowired
     private HttpSession httpSession;
+
+    @RequestMapping(value = "/register", method = {RequestMethod.GET, RequestMethod.POST})
+    public String register() {
+        return "loginandregister/register";
+    }
 
     @RequestMapping(value = "/hello", method = {RequestMethod.GET, RequestMethod.POST})
     public String say() {
