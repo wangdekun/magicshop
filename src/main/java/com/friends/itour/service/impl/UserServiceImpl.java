@@ -19,7 +19,7 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     @Resource
     private UserMapper userMapper;
 
-    @Override
+    /*@Override
     public User findUserByUsernameAndPassword(String userName) {
         User user = userMapper.selectByNameAndPassWord(userName);
         if(user == null){
@@ -34,5 +34,5 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
         List<User> user = userMapper.selectAll();
         PageInfo<User> pageInfo = new PageInfo<>(user);
         return pageInfo;
-    }
+    }*/
 }

@@ -27,7 +27,7 @@ import java.util.Map;
 @Controller
 @RequestMapping(value = "/user")
 public class HelloController {
-    @Resource
+    /*@Resource
     private UserService userService;
 
     @Autowired
@@ -88,13 +88,13 @@ public class HelloController {
             return "login";
         }
         //return  null;
-       /*if(userName.equals("1")&&passWord.equals("123")){
+       *//*if(userName.equals("1")&&passWord.equals("123")){
            return "index";
        }else{
            System.err.println(("000000000000000000"));
            System.err.println((userName));
            return  null;
-       }*/
+       }*//*
     }
 
 
@@ -168,5 +168,5 @@ public class HelloController {
 //            e.printStackTrace();
 //        }
         return pageInfo;
-    }
+    }*/
 }
