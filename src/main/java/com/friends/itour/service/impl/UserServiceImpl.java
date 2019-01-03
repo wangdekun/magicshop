@@ -3,6 +3,7 @@ package com.friends.itour.service.impl;
 import com.friends.itour.core.ret.ServiceException;
 import com.friends.itour.core.universal.AbstractService;
 import com.friends.itour.dao.UserMapper;
+import com.friends.itour.model.Teacher;
 import com.friends.itour.model.User;
 import com.friends.itour.service.UserService;
 import com.github.pagehelper.PageHelper;
@@ -15,9 +16,14 @@ import java.util.List;
 
 //@Component
 @Service
-public class UserServiceImpl extends AbstractService<User> implements UserService {
+public class UserServiceImpl extends AbstractService<Teacher> implements UserService {
     @Resource
     private UserMapper userMapper;
+
+    @Override
+    public List<Teacher> findUser() {
+        return userMapper.selectAll();
+    }
 
     /*@Override
     public User findUserByUsernameAndPassword(String userName) {
