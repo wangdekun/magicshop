@@ -2,14 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script type="text/javascript" src="../../static/js/easyui/jquery.easyui.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../../static/css/easyui/easyui.css">
-    <link rel="stylesheet" type="text/css" href="../../static/css/easyui/demo.css">
     <link rel="stylesheet" type="text/css" href="../../static/css/easyui/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/easyui/demo.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/date/wui.min.css">
+    <!--jquery应该放在easyui上面-->
     <script type="text/javascript" src="../../static/js/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="../../static/js/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../static/js/angular.min.js"></script>
+    <script src="../../static/js/address/city-picker.data.js"></script>
+    <script src="../../static/js/address/city-picker.js"></script>
+    <script type="text/javascript" src="../../static/js/date/wui-date.js" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="../../static/css/address/city-picker.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/address/main.css">
+
+
+
     <title>ITour</title>
 </head>
-<body style="background-color: yellow">
+<body style="background-color: yellow" ng-app="RegisterApp">
     <div style="margin:20px 0;"></div>
     <div style="text-align: center">
         <img style="
@@ -17,39 +28,114 @@
     </div>
     <div class="easyui-paner" title="用户注册" style="width: 400px;margin:0 auto">
         <div style="padding:10px 60px 20px 60px">
-            <form id="ff" method="post">
+            <form id="ff" method="post" ng-submit="submitForm()"  ng-controller="RegisterController">
                 <table cellpadding="5">
                     <tr>
-                        <td>Name:</td>
-                        <td><input class="easyui-textbox" type="text" name="name" data-options="required:true"></input></td>
+                        <td>姓名</td>
+                        <td><input  type="text" ng-model="user.user_name" data-options="required:true"></input></td>
+                    </tr>
+                    <tr>
+                        <td>昵称</td>
+                        <td><input  type="text" ng-model="user.user_nick_name" data-options="required:true"></input>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>生日:</td>
+                        <td>
+                            <wui-date
+                                    format="yyyy-mm-dd"
+                                    placeholder="请选择或输入日期yyyy-mm-dd"
+                                    id="date1"
+                                    btns="{'ok':'确定','now':'此刻'}"
+                                    ng-model="date1"
+                            >
+                            </wui-date>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>性别:</td>
+                        <td>
+                            <select  ng-model="user.user_sex" class="form-control" placeholder="请选择性别" ng-options="x.sex_id as x.sex_name for x in .sex_info">
+                            </select>
+                            <!--<div style="margin-left: 0px">
+                                <input   class="easyui-radiobutton" ng-model="user.user_sex" value="Man" label="男:">
+                            </div>
+                            <div style="margin-right: 0px">
+                                <input   class="easyui-radiobutton" ng-model="user.user_sex" value="Woman" label="女:">
+                            </div>-->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>身份证:</td>
+                        <td>
+                            <input id="idcard" type="text" onfocus="first()" onblur="lastone()"  ng-model="user.user_idcard" data-options="required:true"></input>
+                        </td>
+                        <td id="idcard_tip"></td>
+                    </tr>
+                    <tr>
+                        <td>手机号:</td>
+                        <td>
+                            <input id="mobile" type="text" onfocus="inputmobile()" onblur="outmobile()"  ng-model="user.user_mobile" data-options="required:true"></input>
+                        </td>
+                        <td id="mobile_dscription"></td>
                     </tr>
                     <tr>
                         <td>Email:</td>
-                        <td><input class="easyui-textbox" type="text" name="email" data-options="required:true,validType:'email'"></input></td>
-                    </tr>
-                    <tr>
-                        <td>Subject:</td>
-                        <td><input class="easyui-textbox" type="text" name="subject" data-options="required:true"></input></td>
-                    </tr>
-                    <tr>
-                        <td>Message:</td>
-                        <td><input class="easyui-textbox" name="message" data-options="multiline:true" style="height:60px"></input></td>
-                    </tr>
-                    <tr>
-                        <td>Language:</td>
                         <td>
-                            <select class="easyui-combobox" name="language"><option value="ar">Arabic</option><option value="bg">Bulgarian</option><option value="ca">Catalan</option><option value="zh-cht">Chinese Traditional</option><option value="cs">Czech</option><option value="da">Danish</option><option value="nl">Dutch</option><option value="en" selected="selected">English</option><option value="et">Estonian</option><option value="fi">Finnish</option><option value="fr">French</option><option value="de">German</option><option value="el">Greek</option><option value="ht">Haitian Creole</option><option value="he">Hebrew</option><option value="hi">Hindi</option><option value="mww">Hmong Daw</option><option value="hu">Hungarian</option><option value="id">Indonesian</option><option value="it">Italian</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="lv">Latvian</option><option value="lt">Lithuanian</option><option value="no">Norwegian</option><option value="fa">Persian</option><option value="pl">Polish</option><option value="pt">Portuguese</option><option value="ro">Romanian</option><option value="ru">Russian</option><option value="sk">Slovak</option><option value="sl">Slovenian</option><option value="es">Spanish</option><option value="sv">Swedish</option><option value="th">Thai</option><option value="tr">Turkish</option><option value="uk">Ukrainian</option><option value="vi">Vietnamese</option></select>
+                            <input type="text" ng-model="user.user_email" data-options="required:true,validType:'email'"></input>
                         </td>
                     </tr>
+                    <tr>
+                        <td>籍贯地址:</td>
+                        <td>
+                            <select class="form-control" ng-model="selectProvince" ng-options="key as key for (key,value) in cityData"></select>
+                            <select class="form-control" ng-model="selectCity" ng-options="key as key for (key,value) in cityData[selectProvince]"></select>
+                            <select class="form-control" ng-model="selectDistrict" ng-options="key as key for (key,value) in cityData[selectProvince][selectCity]"></select>
+                        <input type="text" ng-model="filter">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>现居地址:</td>
+                        <td style="position: relative;"><input class="form-control" ng-model="user.user_address" readonly type="text" data-toggle="city-picker"></td>
+                    </tr>
+                    <tr>
+                        <td>密码</td>
+                        <td><input class="easyui-textbox" type="password" ng-model="user.encrypted_user_password" data-options="required:true"></input>
+                        </td>
+                    </tr>
+                    <!--<tr>-->
+                        <!--<td>Message:</td>-->
+                        <!--<td><input class="easyui-textbox" name="message" data-options="multiline:true" style="height:60px"></input></td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td>Language:</td>-->
+                        <!--<td>-->
+                            <!--<select class="easyui-combobox" name="language"><option value="ar">Arabic</option><option value="bg">Bulgarian</option><option value="ca">Catalan</option><option value="zh-cht">Chinese Traditional</option><option value="cs">Czech</option><option value="da">Danish</option><option value="nl">Dutch</option><option value="en" selected="selected">English</option><option value="et">Estonian</option><option value="fi">Finnish</option><option value="fr">French</option><option value="de">German</option><option value="el">Greek</option><option value="ht">Haitian Creole</option><option value="he">Hebrew</option><option value="hi">Hindi</option><option value="mww">Hmong Daw</option><option value="hu">Hungarian</option><option value="id">Indonesian</option><option value="it">Italian</option><option value="ja">Japanese</option><option value="ko">Korean</option><option value="lv">Latvian</option><option value="lt">Lithuanian</option><option value="no">Norwegian</option><option value="fa">Persian</option><option value="pl">Polish</option><option value="pt">Portuguese</option><option value="ro">Romanian</option><option value="ru">Russian</option><option value="sk">Slovak</option><option value="sl">Slovenian</option><option value="es">Spanish</option><option value="sv">Swedish</option><option value="th">Thai</option><option value="tr">Turkish</option><option value="uk">Ukrainian</option><option value="vi">Vietnamese</option></select>-->
+                        <!--</td>-->
+                    <!--</tr>-->
                 </table>
+                <!--日期组件的使用-->
+                <div id="cc" class="easyui-calendar"></div>
+                <div style="text-align:center;padding:5px">
+                    <!--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">Submit</a>-->
+                    <!--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">Clear</a>-->
+                    <button type="submit">submit</button>
+                </div>
             </form>
-            <div style="text-align:center;padding:5px">
-                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">Submit</a>
-                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">Clear</a>
-            </div>
         </div>
     </div>
-    <script>
+    <script type="text/javascript">
+
+        function first() {
+            document.getElementById("idcard_tip").innerHTML="less"
+        }
+
+        function lastone() {
+            console.log("1111111111111")
+            document.getElementById("idcard_tip").innerHTML="more"
+        }
+
         function submitForm(){
             $('#ff').form('submit');
         }
@@ -60,4 +146,29 @@
         </div>
     </div>
 </body>
+<script type="text/javascript" src="../../static/js/loginandregister/register.js">
+</script>
+<script>
+    var m = angular.module("RegisterApp",["wui.date"]);
+    m.controller("RegisterController",["$scope","$http",function($scope,$http){
+
+        $http.get("../../static/js/address/address.json").success(function(data){
+            $scope.cityData = data;
+            $scope.selectProvince = "北京";
+            $scope.selectCity = "北京";
+            $scope.selectDistrict = "北京";
+            $scope.user_sex = "男";
+            console.log($scope.filter)
+            $scope.sex_info =  [
+                {sex_id : 0 , sex_name:'全部游戏'},
+                {sex_id : 1 , sex_name:'穿越火线'},
+            ];
+            $scope.user = {
+                sex_id:0
+        ｝;
+        });
+
+    }]);
+</script>
+
 </html>
