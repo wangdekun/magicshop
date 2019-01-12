@@ -1,10 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.friends.itour.dao.UserMapper">
-    <resultMap id="BaseResultMap" type="com.friends.itour.model.Teacher">
-        <id column="id" jdbcType="INTEGER" property="id"/>
-     <!--   <result column="username" jdbcType="VARCHAR" property="userName"/>
-        <result column="password" jdbcType="VARCHAR" property="passWord"/>-->
+    <resultMap id="BaseResultMap" type="com.friends.itour.model.User">
+        <id column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="user_code" jdbcType="INTEGER" property="userCode"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="user_nick_name" jdbcType="VARCHAR" property="userNickName"/>
+        <result column="user_birthday" jdbcType="DATE" property="userBirthday"/>
+        <result column="user_sex" jdbcType="VARCHAR" property="userSex"/>
+        <result column="user_idcard" jdbcType="INTEGER" property="userIdcard"/>
+        <result column="user_mobile" jdbcType="INTEGER" property="userMobile"/>
+        <result column="user_email" jdbcType="VARCHAR" property="userEmail"/>
+        <result column="user_qq" jdbcType="INTEGER" property="userQq"/>
+        <result column="user_wechat" jdbcType="VARCHAR" property="userWechat"/>
+        <result column="user_origin" jdbcType="VARCHAR" property="userOrigin"/>
+        <result column="user_address" jdbcType="VARCHAR" property="userAddress"/>
+        <result column="encrypted_user_password" jdbcType="VARCHAR" property="encryptedUserPassword"/>
+        <result column="user_creation_date" jdbcType="DATE" property="userCreationDate"/>
+        <result column="user_created_by" jdbcType="VARCHAR" property="userCreatedBy"/>
+        <result column="user_last_update_date" jdbcType="DATE" property="userLastUpdateDate"/>
+        <result column="user_last_updated_by" jdbcType="VARCHAR" property="userLastUpdatedBy"/>
+        <result column="user_type" jdbcType="INTEGER" property="userType"/>
+        <result column="user_status" jdbcType="VARCHAR" property="userStatus"/>
     </resultMap>
 
     <!--<sql id="Base_Column_List">-->
@@ -19,9 +36,17 @@
     <!--</select>-->
     <select id="selectAll" resultMap="BaseResultMap">
         select
-        id
-        from user
+        *
+        from SYS_USER
     </select>
-
+    <!-- 增加用户 -->
+    <insert id="addUser" parameterType="java.lang.String">
+        insert into SYS_USER (user_id,user_code,user_name,user_nick_name,
+        user_birthday,user_sex,user_idcard,user_mobile,user_email,user_qq
+        ,user_wechat,user_origin,user_address,encrypted_user_password
+        ,user_creation_date,user_created_by,user_last_update_date,user_last_updated_by
+        ,user_type,user_status)
+        values (#{username},#{birthday},#{sex},#{address})
+    </insert>
 
 </mapper>

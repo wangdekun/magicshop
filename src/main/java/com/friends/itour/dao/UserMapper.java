@@ -11,7 +11,8 @@ import java.util.List;
  * @Description:
  * @time 2018/4/18 11:54
  */
-public interface UserMapper extends Mapper<Teacher>{
+public interface UserMapper extends Mapper<User>{
     //User selectByNameAndPassWord(String userName);
-    List<Teacher> selectAll();
+    List<User> selectAll();
+    public void addUser(User user);
 }

@@ -7,8 +7,14 @@ import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
-public interface UserService extends Service<Teacher> {
+public interface UserService extends Service<User> {
 //    User findUserByUsernameAndPassword(String userName);
 //    PageInfo<User> findAllUser(Integer page, Integer size);
-    List<Teacher> findUser();
+    //List<User> findUser();
+    public  void addUser(User user);
+    List<User> shangchuan();
+    List<User> shanchu();
+    List<User> xiazai();
+    List<User> chongmingming();
+    List<User> xinjianwenjian();
 }

@@ -1,188 +1,224 @@
 package com.friends.itour.model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.util.Date;
+//用户通性表
+@Entity
+@Table(name="SYS_USER")
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
 public class User {
     @Id
-    private Integer user_id;
+    @Column(name="user_id")
+    private Integer userId;
+    @Column(name="user_code")
+    private Integer userCode;
     @Column(name="user_name")
-    private String user_name;
+    private String userName;
     @Column(name="user_nick_name")
-    private String user_nick_name;
+    private String userNickName;
     @Column(name="user_birthday")
-    private Date user_birthday;
+    private Date userBirthday;
+    @Column(name="user_sex")
+    private String userSex;
     @Column(name="user_idcard")
-    private  Integer user_idcard;
+    private  Integer userIdcard;
     @Column(name="user_mobile")
-    private  Integer user_mobile;
+    private  Integer userMobile;
     @Column(name="user_email")
-    private  String user_email;
+    private  String userEmail;
     @Column(name="user_qq")
-    private  Integer user_qq;
+    private  Integer userQq;
     @Column(name="user_wechat")
-    private  String user_wechat;
+    private  String userWechat;
     @Column(name="user_origin")
-    private  String user_origin;
-    @Column(name="user_origin")
-    private  String user_address;
+    private  String userOrigin;
+    @Column(name="user_address")
+    private  String userAddress;
     @Column(name="encrypted_user_password")
-    private  String encrypted_user_password;
+    private  String encryptedUserPassword;
     @Column(name="user_creation_date")
-    private  Date user_creation_date;
+    private  Date userCreationDate;
     @Column(name="user_created_by")
-    private  String user_created_by;
+    private  String userCreatedBy;
     @Column(name="user_last_update_date")
-    private  Date user_last_update_date;
+    private  Date userLastUpdateDate;
     @Column(name="user_last_updated_by")
-    private  String user_last_updated_by;
+    private  String userLastUpdatedBy;
     @Column(name="user_type")
-    private  Integer user_type;
+    private  Integer userType;
     @Column(name="user_status")
-    private  String user_status;
+    private  String userStatus;
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUser_id(Integer user_id) {
-        this.user_id = user_id;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public Integer getUserCode() {
+        return userCode;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
+    public void setUserCode(Integer userCode) {
+        this.userCode = userCode;
     }
 
-    public String getUser_nick_name() {
-        return user_nick_name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUser_nick_name(String user_nick_name) {
-        this.user_nick_name = user_nick_name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public Date getUser_birthday() {
-        return user_birthday;
+    public String getUserNickName() {
+        return userNickName;
     }
 
-    public void setUser_birthday(Date user_birthday) {
-        this.user_birthday = user_birthday;
+    public void setUserNickName(String userNickName) {
+        this.userNickName = userNickName;
     }
 
-    public Integer getUser_idcard() {
-        return user_idcard;
+    public Date getUserBirthday() {
+        return userBirthday;
     }
 
-    public void setUser_idcard(Integer user_idcard) {
-        this.user_idcard = user_idcard;
+    public void setUserBirthday(Date userBirthday) {
+        this.userBirthday = userBirthday;
     }
 
-    public Integer getUser_mobile() {
-        return user_mobile;
+    public String getUserSex() {
+        return userSex;
     }
 
-    public void setUser_mobile(Integer user_mobile) {
-        this.user_mobile = user_mobile;
+    public void setUserSex(String userSex) {
+        this.userSex = userSex;
     }
 
-    public String getUser_email() {
-        return user_email;
+    public Integer getUserIdcard() {
+        return userIdcard;
     }
 
-    public void setUser_email(String user_email) {
-        this.user_email = user_email;
+    public void setUserIdcard(Integer userIdcard) {
+        this.userIdcard = userIdcard;
     }
 
-    public Integer getUser_qq() {
-        return user_qq;
+    public Integer getUserMobile() {
+        return userMobile;
     }
 
-    public void setUser_qq(Integer user_qq) {
-        this.user_qq = user_qq;
+    public void setUserMobile(Integer userMobile) {
+        this.userMobile = userMobile;
     }
 
-    public String getUser_wechat() {
-        return user_wechat;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUser_wechat(String user_wechat) {
-        this.user_wechat = user_wechat;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public String getUser_origin() {
-        return user_origin;
+    public Integer getUserQq() {
+        return userQq;
     }
 
-    public void setUser_origin(String user_origin) {
-        this.user_origin = user_origin;
+    public void setUserQq(Integer userQq) {
+        this.userQq = userQq;
     }
 
-    public String getUser_address() {
-        return user_address;
+    public String getUserWechat() {
+        return userWechat;
     }
 
-    public void setUser_address(String user_address) {
-        this.user_address = user_address;
+    public void setUserWechat(String userWechat) {
+        this.userWechat = userWechat;
     }
 
-    public String getEncrypted_user_password() {
-        return encrypted_user_password;
+    public String getUserOrigin() {
+        return userOrigin;
     }
 
-    public void setEncrypted_user_password(String encrypted_user_password) {
-        this.encrypted_user_password = encrypted_user_password;
+    public void setUserOrigin(String userOrigin) {
+        this.userOrigin = userOrigin;
     }
 
-    public Date getUser_creation_date() {
-        return user_creation_date;
+    public String getUserAddress() {
+        return userAddress;
     }
 
-    public void setUser_creation_date(Date user_creation_date) {
-        this.user_creation_date = user_creation_date;
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
     }
 
-    public String getUser_created_by() {
-        return user_created_by;
+    public String getEncryptedUserPassword() {
+        return encryptedUserPassword;
     }
 
-    public void setUser_created_by(String user_created_by) {
-        this.user_created_by = user_created_by;
+    public void setEncryptedUserPassword(String encryptedUserPassword) {
+        this.encryptedUserPassword = encryptedUserPassword;
     }
 
-    public Date getUser_last_update_date() {
-        return user_last_update_date;
+    public Date getUserCreationDate() {
+        return userCreationDate;
     }
 
-    public void setUser_last_update_date(Date user_last_update_date) {
-        this.user_last_update_date = user_last_update_date;
+    public void setUserCreationDate(Date userCreationDate) {
+        this.userCreationDate = userCreationDate;
     }
 
-    public String getUser_last_updated_by() {
-        return user_last_updated_by;
+    public String getUserCreatedBy() {
+        return userCreatedBy;
     }
 
-    public void setUser_last_updated_by(String user_last_updated_by) {
-        this.user_last_updated_by = user_last_updated_by;
+    public void setUserCreatedBy(String userCreatedBy) {
+        this.userCreatedBy = userCreatedBy;
     }
 
-    public Integer getUser_type() {
-        return user_type;
+    public Date getUserLastUpdateDate() {
+        return userLastUpdateDate;
     }
 
-    public void setUser_type(Integer user_type) {
-        this.user_type = user_type;
+    public void setUserLastUpdateDate(Date userLastUpdateDate) {
+        this.userLastUpdateDate = userLastUpdateDate;
     }
 
-    public String getUser_status() {
-        return user_status;
+    public String getUserLastUpdatedBy() {
+        return userLastUpdatedBy;
     }
 
-    public void setUser_status(String user_status) {
-        this.user_status = user_status;
+    public void setUserLastUpdatedBy(String userLastUpdatedBy) {
+        this.userLastUpdatedBy = userLastUpdatedBy;
     }
+
+    public Integer getUserType() {
+        return userType;
+    }
+
+    public void setUserType(Integer userType) {
+        this.userType = userType;
+    }
+
+    public String getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(String userStatus) {
+        this.userStatus = userStatus;
+    }
+
+
+//    {
+//        "userId":4,
+//            "userCode":005,
+//            "encryptedUserPassword":"qwerty"
+//    }
+
 }

@@ -25,7 +25,7 @@ CREATE TABLE `SYS_USER` (
   `user_code` INTEGER(11)  COMMENT '用户编码',
   `user_name` varchar(100)  COMMENT '用户name',
   `user_nick_name` varchar(100)  COMMENT '用户昵称',
-  `user_birthday` date  COMMENT '用户birthday' ,
+  `user_birthday` DATE  COMMENT '用户birthday' ,
   `user_sex` varchar(2)  COMMENT '用户sex',
   `user_idcard` INTEGER(18)  COMMENT '用户身份证账号',
   `user_mobile` INTEGER(30)  COMMENT '用户mobile',
@@ -39,7 +39,7 @@ CREATE TABLE `SYS_USER` (
   `user_creation_date` DATE comment '用户创建日期',
   `user_created_by` varchar(100) comment '用户创建人',
   `user_last_update_date` DATE comment '用户修改日期',
-  `user_last_updated_by` DATE comment '用户创建人',
+  `user_last_updated_by` VARCHAR(15) comment '用户创建人',
 /*  `user_number_createarea` VARCHAR(100) comment '用户创建位置',*/
   /*`user_start` INTEGER(2) comment '用户等级',*/
   `user_type` INTEGER(2) comment '用户类型',
