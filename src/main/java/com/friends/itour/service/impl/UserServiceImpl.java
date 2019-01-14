@@ -39,7 +39,7 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
         //String localPath = "/home/wang/下载/two15392444531.rar";
         //上传
         String localPath = "/home/wang/下载/";
-        String fileName = "aa.sql";
+        String fileName = "bb.sql";
         try {
             InputStream input = new ByteArrayInputStream("test ftp jyf".getBytes("GBK"));
             boolean flag = FtpUtil.uploadFile(ftpHost, ftpUserName, ftpPassword, Integer.parseInt(ftpPort), ftpPath, fileName,input);;
