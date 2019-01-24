@@ -17,4 +17,6 @@ public interface UserService extends Service<User> {
     List<User> xiazai();
     List<User> chongmingming();
     List<User> xinjianwenjian();
+
+    List<User> testMybatis();
 }

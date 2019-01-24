@@ -33,6 +33,11 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
     private UserMapper userMapper;
 
 
+
+    public List<User> testMybatis() {
+        return userMapper.selectAll();
+    }
+
     public List<User> xinjianwenjian() {
         String ftpPath = "/var/ftp/pub/images/";
         //下载

@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @Description:
  * @time 2018/4/18 15:16
  */
-@Configuration
+//@Configuration
 public class DruidDataSourceConfigurer {
 
   /*  private Logger logger = LoggerFactory.getLogger(DruidDataSourceConfigurer.class);

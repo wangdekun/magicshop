@@ -11,9 +11,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import javax.sql.DataSource;
 @Configuration
 public class DataSourceConfig {
-
+    /*多个数据源 创建*/
     @Bean(name = "primaryDataSource")
     @Qualifier("primaryDataSource")
+    @Primary /*默认启连接一个数据库注解*/
     @ConfigurationProperties(prefix = "spring.datasource.primary")
     public DataSource primaryDataSource() {
         return DataSourceBuilder.create().build();
@@ -21,12 +22,15 @@ public class DataSourceConfig {
 
     @Bean(name = "secondaryDataSource")
     @Qualifier("secondaryDataSource")
-    @Primary
     @ConfigurationProperties(prefix = "spring.datasource.secondary")
     public DataSource secondaryDataSource() {
         return DataSourceBuilder.create().build();
     }
 
+
+
+
+    /*JdbcTemplate 分配数据源*/
     @Bean(name = "primaryJdbcTemplate")
     public JdbcTemplate primaryJdbcTemplate(
             @Qualifier("primaryDataSource") DataSource dataSource) {
