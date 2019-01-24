@@ -6,12 +6,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
 //用户通性表
 @Entity
 @Table(name="SYS_USER")
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
-public class User {
+public class User implements Serializable{
     @Id
     @Column(name="user_id")
     private Integer userId;
