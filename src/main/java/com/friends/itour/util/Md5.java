@@ -14,9 +14,9 @@ import java.security.NoSuchAlgorithmException;
  * @Date： 2017年3月10日 上午8:13:05
  * @Description：
  */
-public class MD5 {
+public class Md5 {
 	
-	private static Log log = LogFactory.getLog(MD5.class);
+	private static Log log = LogFactory.getLog(Md5.class);
 	
 	public static String md5(String text) {
 		String str = null;
