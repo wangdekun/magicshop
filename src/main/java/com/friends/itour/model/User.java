@@ -19,13 +19,17 @@ public class User {
     private Integer userCode;
     @Column(name="user_name")
     private String userName;
-    @Column(name="user_nick_name")
-    private String userNickName;
-    @Column(name="user_birthday")
-    private Date userBirthday;
     @Column(name="user_sex")
     private String userSex;
-    @Column(name="user_idcard")
+    @Column(name="user_head_portrait")
+    private  String userHeadPortrait;
+    @Column(name="user_birthday")
+    private Date userBirthday;
+    @Column(name="user_password")
+    private  String userPassword;
+    @Column(name="user_real_name")
+    private String userRealName;
+    @Column(name="user_id_card")
     private  Integer userIdcard;
     @Column(name="user_mobile")
     private  Integer userMobile;
@@ -35,12 +39,12 @@ public class User {
     private  Integer userQq;
     @Column(name="user_wechat")
     private  String userWechat;
-    @Column(name="user_origin")
-    private  String userOrigin;
-    @Column(name="user_address")
-    private  String userAddress;
-    @Column(name="encrypted_user_password")
-    private  String encryptedUserPassword;
+    @Column(name="user_type")
+    private  Integer userType;
+    @Column(name="user_status")
+    private  String userStatus;
+    @Column(name="user_activity")
+    private  String userActivity;
     @Column(name="user_creation_date")
     private  Date userCreationDate;
     @Column(name="user_created_by")
@@ -49,10 +53,6 @@ public class User {
     private  Date userLastUpdateDate;
     @Column(name="user_last_updated_by")
     private  String userLastUpdatedBy;
-    @Column(name="user_type")
-    private  Integer userType;
-    @Column(name="user_status")
-    private  String userStatus;
 
     public Integer getUserId() {
         return userId;
@@ -78,12 +78,20 @@ public class User {
         this.userName = userName;
     }
 
-    public String getUserNickName() {
-        return userNickName;
+    public String getUserSex() {
+        return userSex;
     }
 
-    public void setUserNickName(String userNickName) {
-        this.userNickName = userNickName;
+    public void setUserSex(String userSex) {
+        this.userSex = userSex;
+    }
+
+    public String getUserHeadPortrait() {
+        return userHeadPortrait;
+    }
+
+    public void setUserHeadPortrait(String userHeadPortrait) {
+        this.userHeadPortrait = userHeadPortrait;
     }
 
     public Date getUserBirthday() {
@@ -94,12 +102,20 @@ public class User {
         this.userBirthday = userBirthday;
     }
 
-    public String getUserSex() {
-        return userSex;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public void setUserSex(String userSex) {
-        this.userSex = userSex;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    public String getUserRealName() {
+        return userRealName;
+    }
+
+    public void setUserRealName(String userRealName) {
+        this.userRealName = userRealName;
     }
 
     public Integer getUserIdcard() {
@@ -142,28 +158,28 @@ public class User {
         this.userWechat = userWechat;
     }
 
-    public String getUserOrigin() {
-        return userOrigin;
+    public Integer getUserType() {
+        return userType;
     }
 
-    public void setUserOrigin(String userOrigin) {
-        this.userOrigin = userOrigin;
+    public void setUserType(Integer userType) {
+        this.userType = userType;
     }
 
-    public String getUserAddress() {
-        return userAddress;
+    public String getUserStatus() {
+        return userStatus;
     }
 
-    public void setUserAddress(String userAddress) {
-        this.userAddress = userAddress;
+    public void setUserStatus(String userStatus) {
+        this.userStatus = userStatus;
     }
 
-    public String getEncryptedUserPassword() {
-        return encryptedUserPassword;
+    public String getUserActivity() {
+        return userActivity;
     }
 
-    public void setEncryptedUserPassword(String encryptedUserPassword) {
-        this.encryptedUserPassword = encryptedUserPassword;
+    public void setUserActivity(String userActivity) {
+        this.userActivity = userActivity;
     }
 
     public Date getUserCreationDate() {
@@ -197,24 +213,6 @@ public class User {
     public void setUserLastUpdatedBy(String userLastUpdatedBy) {
         this.userLastUpdatedBy = userLastUpdatedBy;
     }
-
-    public Integer getUserType() {
-        return userType;
-    }
-
-    public void setUserType(Integer userType) {
-        this.userType = userType;
-    }
-
-    public String getUserStatus() {
-        return userStatus;
-    }
-
-    public void setUserStatus(String userStatus) {
-        this.userStatus = userStatus;
-    }
-
-
 //    {
 //        "userId":4,
 //            "userCode":005,
