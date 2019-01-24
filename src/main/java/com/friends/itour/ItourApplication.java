@@ -1,10 +1,13 @@
 package com.friends.itour;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.core.JdbcTemplate;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.JedisShardInfo;
@@ -16,9 +19,13 @@ public class ItourApplication {
 	private JedisPoolConfig config;
 	private JedisShardInfo sharInfo;
 
-	public static void main(String[] args) {
+
+
+	public  static void main(String[] args) {
 		SpringApplication.run(ItourApplication.class, args);
 	}
+
+
 
 	@Bean
 	public Jedis jedis(){

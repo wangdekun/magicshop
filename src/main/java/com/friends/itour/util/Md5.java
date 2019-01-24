@@ -1,43 +1,50 @@
 package com.friends.itour.util;
 
-import java.math.BigInteger;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * Created by hp on 2016/11/28.
+ * md5加密类
+ * 
+ * @Title： 
+ * @Author： alvin.wyh
+ * @Date： 2017年3月10日 上午8:13:05
+ * @Description：
  */
-public class Md5 {
-    /**
-     * 使用Md5算法进行加密
-     */
-    public static String jiami(String plainText){
-        //定义一个字节数组，接收加密完成的密码
-        byte[] secretBytes=null;
-        try {
-            /**
-             * MessageDigest：实现指定算法的一个类
-             * 返回值是一个MessageDigest对象
-             * getInstance(String algorithm)
-             * algorithm :要实现的算法名字
-             * public byte[] digest()
-             * 通过执行注入填充志蕾的最终操作完成哈希计算。在调用次方法之后，摘要被重置
-             */
+public class MD5 {
+	
+	private static Log log = LogFactory.getLog(MD5.class);
+	
+	public static String md5(String text) {
+		String str = null;
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			md.update(text.getBytes());
+			byte b[] = md.digest();
+			int i;
+			StringBuffer buf = new StringBuffer("");
+			for (int offset = 0; offset < b.length; offset++) {
+				i = b[offset];
+				if (i < 0)
+					i += 256;
+				if (i < 16)
+					buf.append("0");
+				buf.append(Integer.toHexString(i));
+			}
+			str = buf.toString();
+		} catch (NoSuchAlgorithmException e) {
+			log.error("MD5加密-NoSuchAlgorithm异常", e);
+		} catch (Exception e) {
+			log.error("MD5加密异常", e);
+		}
+		return str.toUpperCase();
+	}
+	
+	public static void main(String agrs[]) {
+		log.info("md5('admin')=="+md5("admin"));// 加密
+	}
 
-            secretBytes = MessageDigest.getInstance("md5").digest(plainText.getBytes());
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        /**
-         * public BigInteger(int signum,byte[] magnitude)
-         * signum:生成的大数字的符号。-1表示负数，0表示零，1表示正数
-         * magnitude：需要转化的字节数组
-         */
-        String md5code=new BigInteger(1,secretBytes).toString(16);//16进制数字
-        //如果生成的数字未满32位，要在前面补0
-        for (int i=0;i<32-md5code.length();i++){
-            md5code="0"+md5code;
-        }
-        return md5code;
-    }
 }

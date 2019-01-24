@@ -1,14 +1,12 @@
 package com.friends.itour.controller;
 
-import com.friends.itour.file.UserFilter;
-import com.friends.itour.model.Teacher;
 import com.friends.itour.model.User;
 import com.friends.itour.service.RedisService;
 import com.friends.itour.service.UserService;
-import com.friends.itour.service.impl.UserServiceImpl;
-import com.friends.itour.util.MD5Util;
-import com.friends.itour.util.Md5;
-import org.springframework.stereotype.Controller;
+import com.friends.itour.util.DateUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -24,18 +22,16 @@ public class RegisterController {
     @Resource
     private RedisService redisService;
 
-    /*@RequestMapping(value = "/registerone", method = {RequestMethod.GET, RequestMethod.POST})
-    public String register() {
-        return "loginandregister/register";
-    }
-    @ResponseBody
-    @RequestMapping(value = "/register", method = {RequestMethod.POST})
-    public String register(@RequestBody User user) {
-        if(user!=null){
-            System.err.println("user:"+user);
-        }
-        return "loginandregister/login";
-    }*/
+    @Autowired
+    @Qualifier("primaryJdbcTemplate")
+    protected JdbcTemplate jdbcTemplate1;
+
+    @Autowired
+    @Qualifier("secondaryJdbcTemplate")
+    protected  JdbcTemplate jdbcTemplate2;
+
+
+
     @RequestMapping(value = "/xinjianwenjian", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public List<User> xinjianwenjian(){
@@ -64,7 +60,7 @@ public class RegisterController {
     }
 
     //注册用户
-    @RequestMapping(value = "/register", method = {RequestMethod.GET, RequestMethod.POST})
+   /* @RequestMapping(value = "/register", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
     public User news(@RequestBody User users) {
         User user = new User();
@@ -77,7 +73,7 @@ public class RegisterController {
         users.setEncryptedUserPassword(Md5.jiami(users.getEncryptedUserPassword()));
         userService.addUser(users);
         return users;
-    }
+    }*/
 
 
     @RequestMapping(value = "/redisTest")
@@ -113,10 +109,36 @@ public class RegisterController {
 
     @RequestMapping(value = "/redissortAdd")
     @ResponseBody
-    public void redisSortAdd(){
+    public void redisSortAdd1(){
 
         redisService.sortAdd();
     }
+
+
+
+    @RequestMapping(value = "/testjdbcTemplate")
+    @ResponseBody
+    public void redisSortAdd(){
+
+        // 往第一个数据源中插入两条数据
+        jdbcTemplate1.update("insert into user(id) values(?)", 100);
+        jdbcTemplate1.update("insert into user(id) values(?)", 101);
+
+        // 往第二个数据源中插入一条数据，若插入的是第一个数据源，则会主键冲突报错
+        jdbcTemplate2.update("insert into tb_test(id,create_time,bills) values(?, ?, ?)", 31000, DateUtils.getDate(), 222);
+
+    /*// 查一下第一个数据源中是否有两条数据，验证插入是否成功
+    Assert.assertEquals("2", jdbcTemplate1.queryForObject("select count(1) from user", String.class));
+
+    // 查一下第一个数据源中是否有两条数据，验证插入是否成功
+    Assert.assertEquals("1", jdbcTemplate2.queryForObject("select count(1) from user", String.class));
+*/
+
+
+    }
+
+
+
 
 
 
