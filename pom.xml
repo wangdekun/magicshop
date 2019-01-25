@@ -240,12 +240,12 @@
                     <nodeVersion>v8.8.1</nodeVersion>
                 </configuration>
                 <executions>
-					<execution>
+					<!-- <execution>
 						<id>npm-install</id>
 						<goals>
 							<goal>npm</goal>
 						</goals>
-					</execution>
+					</execution> -->
                 </executions>
             </plugin>
 
