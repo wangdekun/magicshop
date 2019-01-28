@@ -3,7 +3,7 @@ package com.friends.itour.service;
 import java.util.List;
 
 /**
- * @author 张瑶
+ * @author wdk
  * @Description: redis常用方法
  * @date 2018/4/30 10:35
  */

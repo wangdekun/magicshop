@@ -1,13 +1,8 @@
 package com.friends.itour.service;
 
-import com.friends.itour.util.FtpUtil;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.UUID;
+import com.friends.itour.file.FileFilter;
 
 public interface UploadService {
-    public  void Shangchuan(String localpath);
+    public  void Shangchuan(FileFilter fileFilter);
 
 }

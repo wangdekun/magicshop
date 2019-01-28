@@ -1,7 +1,6 @@
 package com.friends.itour.dao;
 
 import com.friends.itour.core.universal.Mapper;
-import com.friends.itour.model.Teacher;
 import com.friends.itour.model.User;
 
 import java.util.List;
@@ -15,4 +14,5 @@ public interface UserMapper extends Mapper<User>{
     //User selectByNameAndPassWord(String userName);
     List<User> selectAll();
     public void addUser(User user);
+
 }

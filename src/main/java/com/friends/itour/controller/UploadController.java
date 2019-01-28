@@ -1,5 +1,6 @@
 package com.friends.itour.controller;
 
+import com.friends.itour.file.FileFilter;
 import com.friends.itour.service.UploadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,8 +16,8 @@ public class UploadController {
     private UploadService uploadService;
 
     @RequestMapping(value = "/Shangchuan", method = {RequestMethod.GET, RequestMethod.POST})
-    public void  Shangchuan(@RequestBody  String localpath) {
-        uploadService.Shangchuan(localpath);
+    public void  Shangchuan(@RequestBody FileFilter fileFilter) {
+        uploadService.Shangchuan(fileFilter);
 
 
     }
