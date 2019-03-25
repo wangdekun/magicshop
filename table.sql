@@ -92,6 +92,53 @@ CREATE TABLE `SYS_TRANSACTION_RECORD` (
       `transaction_time` DATE NOT NULL comment '资产交易时间'
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 comment '交易记录表';
 
+DROP TABLE
+IF EXISTS `SYS_BRAND`;
+
+CREATE TABLE `SYS_BRAND` (
+	`brand_id` INTEGER (11) PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '品牌表Id',
+	`brand_code` INTEGER (11) NOT NULL COMMENT '品牌编号',
+	`brand_name` VARCHAR (20) NOT NULL COMMENT '品牌名称',
+	`brand_url` INTEGER (8) NOT NULL COMMENT '品牌图片地址',
+	`brand_initial` VARCHAR (1) NOT NULL COMMENT '品牌首字母'
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT '品牌表';
+
+DROP TABLE
+IF EXISTS `SYS_GOODS_TYPE`;
+
+CREATE TABLE `SYS_GOODS_TYPE` (
+	`goods_type_id` INTEGER (11) PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '商品类别表Id',
+	`goods_type_code` INTEGER (11) NOT NULL COMMENT '商品类别编号',
+	`goods_type_name` VARCHAR (20) NOT NULL COMMENT '商品类别名称',
+	`parent_id` INTEGER (11) NOT NULL COMMENT '商品类别父类id',
+	`node_type` VARCHAR (1) NOT NULL COMMENT '是否为父类节点',
+	`sort_type` VARCHAR (1) NOT NULL COMMENT '排序指数即（一级节点1，二级2开头，便于分清）'
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT '商品类别表';
+
+DROP TABLE
+IF EXISTS `SYS_GOODS_SPU`;
+
+CREATE TABLE `SYS_GOODS_SPU` (
+	`goods_spu_id` INTEGER (11) PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '商品spu表Id',
+	`goods_spu_code` INTEGER (11) NOT NULL COMMENT '商品spu编号',
+	`goods_spu_name` VARCHAR (20) NOT NULL COMMENT '商品spu名称',
+	`goods_spu_synopsis` VARCHAR (50) NOT NULL COMMENT '商品spu简介',
+	`goods_spu_content` VARCHAR (200) NOT NULL COMMENT '商品spu详情',
+	`brand_id` INTEGER (11) NOT NULL COMMENT '商品分类id',
+	`goods_type_id` INTEGER (11) NOT NULL COMMENT '商品品牌id'
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT ' 商品spu（标准产品单位，比如一个iphone，与商家等等因素都无关）';
+
+DROP TABLE
+IF EXISTS `SYS_GOODS_SKU`;
+
+CREATE TABLE `SYS_GOODS_SKU` (
+	`goods_sku_id` INTEGER (11) PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '商品sku表Id',
+	`goods_sku_code` INTEGER (11) NOT NULL COMMENT '商品sku编号',
+	`goods_sku_name` VARCHAR (20) NOT NULL COMMENT '商品sku名称',
+	`goods_sku_price` DECIMAL (10,0) NOT NULL COMMENT '商品sku价格',
+	`goods_spu_id` INTEGER (11)  NOT NULL  COMMENT '商品spu表Id'
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT ' 商品sku（标准产品单位，比如一个黑色16g的iphone）';
+
 
 
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.friends.itour.dao.TreeMapper">
+    <resultMap id="BaseResultMap" type="com.friends.itour.model.TreeModel">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="parentId" jdbcType="INTEGER" property="parentId"/>
+    </resultMap>
+
+    <!--<sql id="Base_Column_List">-->
+    <!--id,username,password-->
+    <!--</sql>-->
+
+    <!--<select id="selectByNameAndPassWord" parameterType="java.lang.String" resultMap="BaseResultMap">-->
+    <!--select-->
+    <!--<include refid="Base_Column_List"/>-->
+    <!--from user-->
+    <!--where username = #{userName,jdbcType=VARCHAR}-->
+    <!--</select>-->
+    <select id="findTree" resultMap="BaseResultMap">
+        select
+        *
+        from tree
+        where
+        <if test="parentId ==null">
+            parentId is null
+        </if>
+        <if test="parentId !=null">
+            parentId= #{parentId,jdbcType=INTEGER}
+        </if>
+    </select>
+    <!-- 增加用户 -->
+    <!--<insert id="addUser" parameterType="java.lang.String">-->
+    <!--insert into SYS_USER (user_id,user_code,user_name,user_nick_name,-->
+    <!--user_birthday,user_sex,user_idcard,user_mobile,user_email,user_qq-->
+    <!--,user_wechat,user_origin,user_address,encrypted_user_password-->
+    <!--,user_creation_date,user_created_by,user_last_update_date,user_last_updated_by-->
+    <!--,user_type,user_status)-->
+    <!--values (#{username},#{birthday},#{sex},#{address})-->
+    <!--</insert>-->
+
+</mapper>

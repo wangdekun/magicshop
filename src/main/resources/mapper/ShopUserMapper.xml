@@ -18,7 +18,7 @@
         <result column="user_type" jdbcType="INTEGER" property="userType"/>
         <result column="user_status" jdbcType="VARCHAR" property="userStatus"/>
         <result column="user_activity" jdbcType="VARCHAR" property="userActivity"/>
-        <result column="user_creation_date" jdbcType="DATE" property="userCreationDate"/>
+        <result column="user_creataion_date" jdbcType="DATE" property="userCreationDate"/>
         <result column="user_created_by" jdbcType="VARCHAR" property="userCreatedBy"/>
         <result column="user_last_update_date" jdbcType="DATE" property="userLastUpdateDate"/>
         <result column="user_last_updated_by" jdbcType="VARCHAR" property="userLastUpdatedBy"/>
