@@ -18,6 +18,11 @@ public class TreeModel {
     private String name;
     @Column(name="parentId")
     private Integer parentId;
+    @Column(name="nodestype")
+    private Integer nodestype;
+    @Column(name="isroot")
+    private String isroot;
+
 
     public Integer getId() {
         return id;
@@ -41,5 +46,21 @@ public class TreeModel {
 
     public void setParentId(Integer parentId) {
         this.parentId = parentId;
+    }
+
+    public Integer getNodestype() {
+        return nodestype;
+    }
+
+    public void setNodestype(Integer nodestype) {
+        this.nodestype = nodestype;
+    }
+
+    public String getIsroot() {
+        return isroot;
+    }
+
+    public void setIsroot(String isroot) {
+        this.isroot = isroot;
     }
 }

@@ -5,6 +5,8 @@
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="parentId" jdbcType="INTEGER" property="parentId"/>
+        <result column="nodestype" jdbcType="INTEGER" property="nodestype"/>
+        <result column="isroot" jdbcType="VARCHAR" property="isroot"/>
     </resultMap>
 
     <!--<sql id="Base_Column_List">-->
@@ -21,13 +23,13 @@
         select
         *
         from tree
-        where
-        <if test="parentId ==null">
-            parentId is null
-        </if>
-        <if test="parentId !=null">
-            parentId= #{parentId,jdbcType=INTEGER}
-        </if>
+        <!--where-->
+        <!--<if test="parentId ==null">-->
+            <!--parentId is null-->
+        <!--</if>-->
+        <!--<if test="parentId !=null">-->
+            <!--parentId= #{parentId,jdbcType=INTEGER}-->
+        <!--</if>-->
     </select>
     <!-- 增加用户 -->
     <!--<insert id="addUser" parameterType="java.lang.String">-->
