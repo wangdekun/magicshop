@@ -6,6 +6,7 @@ public class TreeFilter {
     private String name;
     private String title;
     private Integer id;
+    private String isroot;
     private List<TreeFilter> treeFilters;
 
     public String getName() {
@@ -38,5 +39,13 @@ public class TreeFilter {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getIsroot() {
+        return isroot;
+    }
+
+    public void setIsroot(String isroot) {
+        this.isroot = isroot;
     }
 }
