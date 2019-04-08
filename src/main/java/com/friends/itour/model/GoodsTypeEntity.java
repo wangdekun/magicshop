@@ -15,7 +15,7 @@ public class GoodsTypeEntity {
     @Column(name="goods_type_id")
     private Integer goodsTypeId;
     @Column(name="goods_type_code")
-    private Integer getGoodsTypeCode;
+    private Integer goodsTypeCode;
     @Column(name="goods_type_name")
     private String goodsTypeName;
     @Column(name="parent_id")
@@ -33,12 +33,12 @@ public class GoodsTypeEntity {
         this.goodsTypeId = goodsTypeId;
     }
 
-    public Integer getGetGoodsTypeCode() {
-        return getGoodsTypeCode;
+    public Integer getGoodsTypeCode() {
+        return goodsTypeCode;
     }
 
-    public void setGetGoodsTypeCode(Integer getGoodsTypeCode) {
-        this.getGoodsTypeCode = getGoodsTypeCode;
+    public void setGoodsTypeCode(Integer goodsTypeCode) {
+        this.goodsTypeCode = goodsTypeCode;
     }
 
     public String getGoodsTypeName() {

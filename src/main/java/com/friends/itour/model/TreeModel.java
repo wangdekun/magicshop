@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name="tree")
@@ -22,7 +23,7 @@ public class TreeModel {
     private Integer nodestype;
     @Column(name="isroot")
     private String isroot;
-
+    private List<TreeModel> treeModelListChildren;
 
     public Integer getId() {
         return id;
@@ -62,5 +63,13 @@ public class TreeModel {
 
     public void setIsroot(String isroot) {
         this.isroot = isroot;
+    }
+
+    public List<TreeModel> getTreeModelListChildren() {
+        return treeModelListChildren;
+    }
+
+    public void setTreeModelListChildren(List<TreeModel> treeModelListChildren) {
+        this.treeModelListChildren = treeModelListChildren;
     }
 }

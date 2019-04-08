@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping(value = "/tree")
@@ -70,8 +67,8 @@ public class TreeController {
                                         if(m.get(j).getIsroot().equals("N")){
                                             Integer forthNum =0;
                                             for (int s=0;s<m.size();s++){
-                                                forthNum += 1;
                                                 if (m.get(s).getParentId()==m.get(j).getId()){
+                                                    forthNum += 1;
                                                     TreeFilter treeFilter1four = new TreeFilter();
                                                     treeFilter1four.setIsroot(m.get(s).getIsroot());
                                                     treeFilter1four.setTitle(m.get(s).getName());
@@ -83,8 +80,8 @@ public class TreeController {
                                                     if(m.get(s).getIsroot().equals("N")) {
                                                         Integer fifthNum =0;
                                                         for (int q = 0; q < m.size(); q++) {
-                                                            fifthNum += 1;
                                                             if (m.get(q).getParentId() == m.get(s).getId()) {
+                                                                fifthNum += 1;
                                                                 TreeFilter treeFilter1five = new TreeFilter();
                                                                 treeFilter1five.setIsroot(m.get(q).getIsroot());
                                                                 treeFilter1five.setTitle(m.get(q).getName());
@@ -103,6 +100,30 @@ public class TreeController {
                         }
                     }
                 }
+            }
+        }
+        return submenus;
+    }
+
+    @RequestMapping(value = "/findtree2.json", method = {RequestMethod.GET, RequestMethod.POST})
+    public List<TreeFilter> findTree2(@RequestBody TreeModel treeModel){
+        List<TreeModel> m=treeService.selectTree(treeModel);
+        List<TreeFilter> submenus =new ArrayList();
+        Integer firstNum =0;
+        Iterator iterator = m.iterator();
+        while (iterator.hasNext()){
+            TreeModel treeModel1 = (TreeModel) iterator.next();
+            System.err.println(treeModel1.getName());
+            List<TreeModel>  treeModelListChildren = treeModel1.getTreeModelListChildren();
+            if(treeModel1.getIsroot().equals("N")){
+                System.err.println("123");
+            }else {
+                System.err.println("我没有儿子");
+                TreeFilter treeFilter =new TreeFilter();
+                treeFilter.setIsroot(treeModel1.getIsroot());
+                treeFilter.setName(treeModel1.getName());
+                treeFilter.setTitle(treeModel1.getName());
+                submenus.add(treeFilter);
             }
         }
         return submenus;

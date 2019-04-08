@@ -3,7 +3,7 @@
 <mapper namespace="com.friends.itour.dao.GoodsTypeMapper">
     <resultMap id="BaseResultMap" type="com.friends.itour.model.GoodsTypeEntity">
         <id column="goods_type_id" jdbcType="INTEGER" property="goodsTypeId"/>
-        <result column="goods_type_code" jdbcType="INTEGER" property="getGoodsTypeCode"/>
+        <result column="goods_type_code" jdbcType="INTEGER" property="goodsTypeCode"/>
         <result column="goods_type_name" jdbcType="VARCHAR" property="goodsTypeName"/>
         <result column="parent_id" jdbcType="INTEGER" property="parentId"/>
         <result column="node_type" jdbcType="VARCHAR" property="nodeType"/>

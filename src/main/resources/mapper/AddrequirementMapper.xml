@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.friends.itour.dao.AddrequirementMapper">
+    <resultMap id="BaseResultMap" type="com.friends.itour.model.RequirementEditEmpty">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="content" jdbcType="LONGVARCHAR" property="content"/>
+        <result column="create_time" jdbcType="DATE" property="createTime"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
+        <result column="update_time" jdbcType="DATE" property="updateTime"/>
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
+        <result column="limit" jdbcType="VARCHAR" property="limit"/>
+    </resultMap>
+
+</mapper>

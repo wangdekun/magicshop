@@ -28,7 +28,9 @@ public class UserController {
     //用户登录
     @RequestMapping(value = "/login.json", method = {RequestMethod.GET, RequestMethod.POST})
     public User login(@RequestBody User user) {
-        user.setUserPassword(Md5.jiami(user.getUserPassword()));
+        //user.setUserPassword(Md5.jiami(user.getUserPassword()));
+        user.setUserName("123");
+        user.setUserPassword("123456");
         return shopUserService.login(user);
     }
 }
