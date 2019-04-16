@@ -5,4 +5,5 @@ import com.friends.itour.model.RequirementEditEmpty;
 
 
 public interface AddrequirementService extends Service<RequirementEditEmpty> {
+    public RequirementEditEmpty selectOneRequirement (Integer id);
 }

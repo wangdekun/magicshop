@@ -5,10 +5,10 @@
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="content" jdbcType="LONGVARCHAR" property="content"/>
         <result column="create_time" jdbcType="DATE" property="createTime"/>
-        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
         <result column="update_time" jdbcType="DATE" property="updateTime"/>
+        <result column="create_by" jdbcType="VARCHAR" property="createBy"/>
         <result column="update_by" jdbcType="VARCHAR" property="updateBy"/>
-        <result column="limit" jdbcType="VARCHAR" property="limit"/>
+        <result column="doclimit" jdbcType="VARCHAR" property="doclimit"/>
     </resultMap>
 
 </mapper>

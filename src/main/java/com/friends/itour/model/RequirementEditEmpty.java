@@ -10,7 +10,7 @@ import java.util.Date;
 @Entity
 @Table(name="requirementedit")
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
-public class RequirementEditEmpty {
+public class    RequirementEditEmpty {
     @javax.persistence.Id
     @Column(name="id")
     private Integer id;
@@ -24,8 +24,8 @@ public class RequirementEditEmpty {
     private Date updateTime;
     @Column(name="update_by")
     private String updateBy;
-    @Column(name="limit")
-    private String limit;
+    @Column(name="doclimit")
+    private String doclimit;
 
     public Integer getId() {
         return id;
@@ -75,11 +75,11 @@ public class RequirementEditEmpty {
         this.updateBy = updateBy;
     }
 
-    public String getLimit() {
-        return limit;
+    public String getDoclimit() {
+        return doclimit;
     }
 
-    public void setLimit(String limit) {
-        this.limit = limit;
+    public void setDoclimit(String doclimit) {
+        this.doclimit = doclimit;
     }
 }

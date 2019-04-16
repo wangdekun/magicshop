@@ -77,6 +77,12 @@ public class AddrequirementServiceImpl implements AddrequirementService {
 
     @Override
     public RequirementEditEmpty selectOne(RequirementEditEmpty record) {
+        //addrequirementMapper.selectByPrimaryKey(id);
         return null;
+    }
+
+    @Override
+    public RequirementEditEmpty selectOneRequirement(Integer id) {
+        return addrequirementMapper.selectByPrimaryKey(id);
     }
 }
