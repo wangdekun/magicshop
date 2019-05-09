@@ -1,6 +1,11 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 
+transaction-logs/tmlog136.log
+transaction-logs/tmlog114.log
+
+
+
 ### STS ###
 .apt_generated
 .classpath
