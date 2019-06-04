@@ -394,7 +394,7 @@ public class AliyunOSSClientUtil {
     /**
      * 获得url链接
      *
-     * @param key
+     * @param
      * @return
      */
     public static String getUrl(OSSClient ossClient, String bucketName, String fileName) {
@@ -451,9 +451,11 @@ public class AliyunOSSClientUtil {
               logger.info("上传后的文件MD5数字唯一签名:" + s[0]);
               logger.info("文件路径:"
                       + s[1]);
-              String url = AliyunOSSClientUtil.getUrl(ossClient,
-                      BACKET_NAME, s[1]);
-              logger.info("访问网址路径:" + url); //
+              //一下是为了获取有身份验证的token
+              /*String url = AliyunOSSClientUtil.getUrl(ossClient,
+                      BACKET_NAME, s[1]);*/
+              logger.info("访问网址路径:" + s[1]); //
+        String url = "https://fileedit.oss-cn-beijing.aliyuncs.com/"+s[1];
         return url;
               //上传后的文件MD5数字唯一签名:40F4131427068E08451D37F02021473A
           //}
